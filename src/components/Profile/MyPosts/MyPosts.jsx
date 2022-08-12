@@ -3,16 +3,22 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
 
 const MyPosts = (props) => {
-  
-  let postsElements = props.posts.map (p => 
-  <Post message={p.message} likesCount={p.likesCount} />)
+
+  let postsElements = props.posts.map(p =>
+    <Post message={p.message} likesCount={p.likesCount} />)
+  let newPostElement = React.createRef();
+  let addPost = () => {
+    debugger;
+    let text = newPostElement.current.value;
+    props.addPost(text);
+  }
   return (
 
     <div className={s.postBlock}>
       <h3> My posts</h3>
       <div>
-        <div><textarea></textarea></div>
-        <div><button onClick={()=>{alert('samuraijs.com')}}>Add Post</button></div>
+        <div><textarea ref={newPostElement}></textarea></div>
+        <div><button onClick={addPost}>Add Post</button></div>
       </div>
       <div className={s.posts}>
         {postsElements}
