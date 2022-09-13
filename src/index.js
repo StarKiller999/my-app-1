@@ -1,7 +1,9 @@
 import reportWebVitals from './reportWebVitals';
 import {rerenderEntireTree} from './render';
-import state from './Redux/state';
+import store from './Redux/state';
 
 
-rerenderEntireTree(state);
+
+rerenderEntireTree(store.getState);
 reportWebVitals();
+store.subscribe (rerenderEntireTree);
