@@ -6,16 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import store from './Redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerenderEntireTree = (state) =>{
+export let rerenderEntireTree = (state) => {
 
-root.render(
-  
-  <React.StrictMode>
-  <App state={store.getState()} 
-  
-  dispatch={store.dispatch.bind(store)} />
-  </React.StrictMode>
-);
+  root.render(
+
+    <React.StrictMode>
+      <App state={store.getState()}
+        dispatch={store.dispatch.bind(store)}
+        store={store}
+      />
+    </React.StrictMode>
+  );
 }
 
 
