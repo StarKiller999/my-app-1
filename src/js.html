@@ -1,0 +1,26 @@
+<script>
+let age =18;
+let age2 = age;
+
+let a = {
+    name: 'it-kamasutra',
+    protocol: 'https',
+    maxStudentsCount: 10,
+    isOnline: true,
+    students: ['Ivan', 'Andrey', 'Farid'],
+    classroom: {
+        teather: {
+            name:'wew',
+            age: 18
+        }
+    }
+}
+let b = {...a};
+b.classroom = {...a.classroom};
+b.classroom.teather = {...a.classroom.teather};
+b.students = [a.students]
+b.classroom.teather.name = 'Petrucho';
+
+
+
+</script>

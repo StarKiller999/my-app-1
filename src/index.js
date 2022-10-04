@@ -1,12 +1,21 @@
 import reportWebVitals from './reportWebVitals';
-import { rerenderEntireTree } from './render';
 import store from './Redux/redux-store';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { Provider } from 'react-redux';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
+  root.render(
 
-rerenderEntireTree(store.getState);
+    // <React.StrictMode>
+      <Provider store = {store} >
+      <App />
+      </Provider>
+    // </React.StrictMode>
+  );
+
 reportWebVitals();
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-});
